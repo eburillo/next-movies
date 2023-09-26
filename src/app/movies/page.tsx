@@ -9,6 +9,7 @@ const getMovies = async (queryString: string) => {
     `https://www.omdbapi.com/?apikey=${API_KEY}&s=${queryString}`
   )
   const data = await response.json()
+  console.log(data.Search)
   return data.Search
 }
 
