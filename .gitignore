@@ -7,6 +7,7 @@
 
 # testing
 /coverage
+/__e2e__/demo-todo-app.spec.ts
 
 # next.js
 /.next/
