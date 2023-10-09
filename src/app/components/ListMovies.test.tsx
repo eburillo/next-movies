@@ -1,4 +1,17 @@
-const mock = [
+import { render, screen, within } from '@testing-library/react'
+import ListMovies from '@/app/components/ListMovies'
+import { Movie } from '@/app/types'
+
+test('should render 10 items', () => {
+  render(<ListMovies movies={mockMovies as Movie[]} />)
+
+  const list = screen.getByRole('list')
+  const { getAllByRole } = within(list)
+  const items = getAllByRole('listitem')
+  expect(items.length).toBe(10)
+})
+
+const mockMovies = [
   {
     Title: 'Titanic',
     Year: '1997',
@@ -80,5 +93,3 @@ const mock = [
       'https://m.media-amazon.com/images/M/MV5BMjI2MzU2NzEzN15BMl5BanBnXkFtZTcwMzI5NTU3Nw@@._V1_SX300.jpg'
   }
 ]
-
-export default mock
